@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-run-cmd"
-version = "0.1.0-alpha.0"
+version = "0.1.0a1"
 description = "Run a command within python"
 authors = ["ffreemt"]
 license = "MIT"
