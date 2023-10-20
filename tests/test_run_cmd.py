@@ -1,6 +1,6 @@
 """Test run_cmd."""
 # pylint: disable=broad-except
-from run_cmd import __version__, run_cmd
+from python_run_cmd import __version__, run_cmd
 
 
 def test_version():

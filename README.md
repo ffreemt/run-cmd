@@ -6,7 +6,7 @@ Run a command within python
 ## Install it
 
 ```shell
-pip install run-cmd
+pip install python-run-cmd
 # pip install git+https://github.com/ffreemt/run-cmd
 # poetry add git+https://github.com/ffreemt/run-cmd
 # git clone https://github.com/ffreemt/run-cmd && cd run-cmd
@@ -14,7 +14,7 @@ pip install run-cmd
 
 ## Use it
 ```python
-from run_cmd import run_cmd
+from python_run_cmd import run_cmd
 
 ret = run_cmd("ls -l")
 if ret.returncode:
