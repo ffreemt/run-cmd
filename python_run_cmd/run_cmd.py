@@ -19,7 +19,7 @@ def run_cmd(cmd, mute_stdout=True, mute_stderr=False):
     -------
         CompletedProcess(args=cmd, returncode=0|..., stdout='...', stderr='...'
     """
-    logger.info(f"{cmd=}")
+    logger.info(f"\n\t{cmd=}")
     ret = sp.run(cmd, capture_output=True, check=False, shell=True, encoding="utf8")
     if ret.stdout and not mute_stdout:
         rich.print(ret.stdout)
