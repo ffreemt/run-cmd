@@ -11,6 +11,6 @@ def test_version():
 def test_sanity():
     """Check sanity."""
     try:
-        assert not run_cmd()
+        assert not run_cmd()  # type: ignore
     except Exception:
         assert True

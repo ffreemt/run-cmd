@@ -23,3 +23,26 @@ else:
   print("OK")
 
 ```
+
+Raise an exception when errors occur. This may come
+handy sometimes.
+
+```python
+from python_run_cmd import run_cmd
+
+ret = run_cmd("lsss -l")
+# 'lsss' is not recognized as an internal
+# or external command, operable program or batch file.
+
+```
+
+Set `raise_stderr=False` to ignore errors
+```python
+from python_run_cmd import run_cmd
+
+ret = run_cmd("lsss -l", raise_stderr=False)
+if ret.returncode:
+  print("Failed")
+else:
+  print("OK")
+
