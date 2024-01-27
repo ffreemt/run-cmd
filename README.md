@@ -53,7 +53,7 @@ else:
 
 ### `run_cmd_async`
 Simultaneously run several commands:
-```
+```python
 import asyncio
 import webbrowser
 from python_run_cmd import run_cmd_async
@@ -72,7 +72,7 @@ asyncio.run(main())
 ```
 
 For **Python up to 3.10**, it can be simplified (it won't work with Python 3.11):
-```
+```python
 import asyncio
 import webbrowser
 from python_run_cmd import run_cmd_async
