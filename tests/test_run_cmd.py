@@ -14,3 +14,8 @@ def test_sanity():
         assert not run_cmd()  # type: ignore
     except Exception:
         assert True
+
+    try:
+        assert not run_cmd_async()  # type: ignore
+    except Exception:
+        assert True
