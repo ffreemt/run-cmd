@@ -13,6 +13,7 @@ pip install python-run-cmd
 ```
 
 ## Use it
+### `run_cmd`
 ```python
 from python_run_cmd import run_cmd
 
@@ -24,13 +25,16 @@ else:
 
 ```
 
-Raise an exception when errors occur. This may come
+An exception will be raised when errors occur. This may come
 handy sometimes.
 
 ```python
 from python_run_cmd import run_cmd
 
-ret = run_cmd("lsss -l")
+try:
+  ret = run_cmd("lsss -l")
+except Exception as exc:
+  print(exc)
 # 'lsss' is not recognized as an internal
 # or external command, operable program or batch file.
 
@@ -45,4 +49,45 @@ if ret.returncode:
   print("Failed")
 else:
   print("OK")
+```
 
+### `run_cmd_async`
+Simultaneously run several commands:
+```
+import asyncio
+import webbrowser
+from python_run_cmd import run_cmd_async
+
+async def browse_8000():
+    webbrowser.open("http://127.0.0.1:8000")
+
+async def main():
+  return await asyncio.gather(
+    run_cmd_async("ping www.baidu.com"),
+    browse_8000(),
+    run_cmd_async("python -m http.server"),
+  )
+
+asyncio.run(main())
+```
+
+For **Python up to 3.10**, it can be simplified (it won't work with Python 3.11):
+```
+import asyncio
+import webbrowser
+from python_run_cmd import run_cmd_async
+
+async def browse_8000():
+    webbrowser.open("http://127.0.0.1:8000")
+
+asyncio.run(
+  asyncio.wait(
+    [
+    run_cmd_async("ping www.baidu.com"),
+    browse_8000(),
+    run_cmd_async("python -m http.server"),
+    ]
+  )
+)
+```
+Note there is no auxiliary async function `main`.
