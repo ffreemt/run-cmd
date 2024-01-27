@@ -1,5 +1,5 @@
 """Init."""
-__version__ = "0.1.1a0"
+__version__ = "0.1.1a1"
 from .run_cmd import run_cmd
 from .run_cmd_async import run_cmd_async
 
