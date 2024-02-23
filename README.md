@@ -90,4 +90,15 @@ asyncio.run(
   )
 )
 ```
-Note there is no auxiliary async function `main`.
+Note there is no auxiliary async `main` function.
+
+### `run_cmd_stream`
+
+Some commands take a long time to complete. If we want to see live stream output (one line at a time), `run_cmd_stream` can be used.
+```python
+from python_run_cmd import run_cmd_stream
+
+run_cmd_stream("ping -n 100 baidu.com")
+```
+
+We won't have to wait until all 100 pings to complete to see the output.

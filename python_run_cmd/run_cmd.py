@@ -24,6 +24,7 @@ def run_cmd(
     Returns:
     -------
         CompletedProcess(args=cmd, returncode=0|..., stdout='...', stderr='...'
+
     """
     logger.info(f"\n\t{cmd=}")
     ret = sp.run(cmd, capture_output=True, check=False, shell=True, encoding="utf8")
